@@ -1,0 +1,19 @@
+<p>Listado de Héroes</p>
+
+<!-- Si heroDeleted es un string vacío, entonces no se muestra -->
+<div *ngIf="heroDeleted; else noEliminado">
+  <h3>
+    Héroe Eliminado <small>{{ heroDeleted }}</small>
+  </h3>
+</div>
+
+<!-- ng-template parecido a un fragment -->
+<ng-template #noEliminado>
+  <h3>No ha eliminado nada</h3>
+</ng-template>
+
+<button (click)="eliminarHero()">Eliminar Hero</button>
+
+<ul>
+  <li *ngFor="let hero of heroes; let i = index">{{ i + 1 }} - {{ hero }}</li>
+</ul>
